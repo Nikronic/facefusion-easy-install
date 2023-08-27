@@ -14,7 +14,6 @@ from facefusion.face_analyser import get_one_face, get_many_faces, find_similar_
 from facefusion.face_masker import create_static_box_mask, create_occlusion_mask, create_mouth_mask, clear_face_occluder, clear_face_parser
 from facefusion.face_helper import warp_face_by_face_landmark_5, warp_face_by_bounding_box, paste_back, create_bounding_box_from_face_landmark_68
 from facefusion.face_store import get_reference_faces
-from facefusion.content_analyser import clear_content_analyser
 from facefusion.normalizer import normalize_output_path
 from facefusion.typing import Face, VisionFrame, UpdateProgress, ProcessMode, ModelSet, OptionsWithModel, AudioFrame, QueuePayload
 from facefusion.filesystem import is_file, has_audio, resolve_relative_path
@@ -131,7 +130,6 @@ def post_process() -> None:
 		clear_frame_processor()
 	if facefusion.globals.video_memory_strategy == 'strict':
 		clear_face_analyser()
-		clear_content_analyser()
 		clear_face_occluder()
 		clear_face_parser()
 		clear_voice_extractor()

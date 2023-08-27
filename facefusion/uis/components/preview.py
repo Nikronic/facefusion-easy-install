@@ -14,7 +14,6 @@ from facefusion.face_store import clear_static_faces, get_reference_faces, clear
 from facefusion.typing import Face, FaceSet, AudioFrame, VisionFrame
 from facefusion.vision import get_video_frame, count_video_frame_total, normalize_frame_color, resize_frame_resolution, read_static_image, read_static_images
 from facefusion.filesystem import is_image, is_video, filter_audio_paths
-from facefusion.content_analyser import analyse_frame
 from facefusion.processors.frame.core import load_frame_processor_module
 from facefusion.uis.core import get_ui_component, get_ui_components, register_ui_component
 
@@ -189,8 +188,6 @@ def update_preview_frame_slider() -> gradio.Slider:
 
 def process_preview_frame(reference_faces : FaceSet, source_face : Face, source_audio_frame : AudioFrame, target_vision_frame : VisionFrame) -> VisionFrame:
 	target_vision_frame = resize_frame_resolution(target_vision_frame, (640, 640))
-	if analyse_frame(target_vision_frame):
-		return cv2.GaussianBlur(target_vision_frame, (99, 99), 0)
 	for frame_processor in facefusion.globals.frame_processors:
 		frame_processor_module = load_frame_processor_module(frame_processor)
 		logger.disable()

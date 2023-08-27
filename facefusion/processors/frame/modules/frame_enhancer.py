@@ -10,7 +10,6 @@ import facefusion.globals
 import facefusion.processors.frame.core as frame_processors
 from facefusion import config, process_manager, logger, wording
 from facefusion.face_analyser import clear_face_analyser
-from facefusion.content_analyser import clear_content_analyser
 from facefusion.execution import apply_execution_provider_options
 from facefusion.normalizer import normalize_output_path
 from facefusion.typing import Face, VisionFrame, UpdateProgress, ProcessMode, ModelSet, OptionsWithModel, QueuePayload
@@ -174,7 +173,6 @@ def post_process() -> None:
 		clear_frame_processor()
 	if facefusion.globals.video_memory_strategy == 'strict':
 		clear_face_analyser()
-		clear_content_analyser()
 
 
 def enhance_frame(temp_vision_frame : VisionFrame) -> VisionFrame:

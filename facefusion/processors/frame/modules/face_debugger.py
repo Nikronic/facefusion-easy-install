@@ -10,7 +10,6 @@ from facefusion.face_analyser import get_one_face, get_many_faces, find_similar_
 from facefusion.face_masker import create_static_box_mask, create_occlusion_mask, create_region_mask, clear_face_occluder, clear_face_parser
 from facefusion.face_helper import warp_face_by_face_landmark_5, categorize_age, categorize_gender
 from facefusion.face_store import get_reference_faces
-from facefusion.content_analyser import clear_content_analyser
 from facefusion.typing import Face, VisionFrame, UpdateProgress, ProcessMode, QueuePayload
 from facefusion.vision import read_image, read_static_image, write_image
 from facefusion.processors.frame.typings import FaceDebuggerInputs
@@ -62,7 +61,6 @@ def post_process() -> None:
 		clear_frame_processor()
 	if facefusion.globals.video_memory_strategy == 'strict':
 		clear_face_analyser()
-		clear_content_analyser()
 		clear_face_occluder()
 		clear_face_parser()
 

@@ -16,7 +16,6 @@ from facefusion.face_analyser import get_one_face, get_average_face, get_many_fa
 from facefusion.face_masker import create_static_box_mask, create_occlusion_mask, create_region_mask, clear_face_occluder, clear_face_parser
 from facefusion.face_helper import warp_face_by_face_landmark_5, paste_back
 from facefusion.face_store import get_reference_faces
-from facefusion.content_analyser import clear_content_analyser
 from facefusion.normalizer import normalize_output_path
 from facefusion.typing import Face, Embedding, VisionFrame, UpdateProgress, ProcessMode, ModelSet, OptionsWithModel, QueuePayload
 from facefusion.filesystem import is_file, is_image, has_image, is_video, filter_image_paths, resolve_relative_path
@@ -222,7 +221,6 @@ def post_process() -> None:
 		clear_frame_processor()
 	if facefusion.globals.video_memory_strategy == 'strict':
 		clear_face_analyser()
-		clear_content_analyser()
 		clear_face_occluder()
 		clear_face_parser()
 
