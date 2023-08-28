@@ -13,11 +13,11 @@ Write-Host "WinGet installation succeeded!"
 
 # install Python 3.10
 Write-Host "Installing Python 3.10..."
-winget install --wait -e --id Python.Python.3.10
 # refresh Path so no need to close and reopen the shell
 # stolen from https://stackoverflow.com/a/71415530/7606121
 $env:PATH = [Environment]::GetEnvironmentVariable('Path', 'Machine'),
             [Environment]::GetEnvironmentVariable('Path', 'User') -join ';'
+winget install --silent --wait -e --id Python.Python.3.10
 $python_version = python --version
 if ($python_version -like "Python 3.10.*.")
 {
@@ -27,11 +27,11 @@ if ($python_version -like "Python 3.10.*.")
 
 # install Git
 Write-Host "Install Git to access source codes..."
-winget install --wait -e --id Git.Git
 # refresh Path so no need to close and reopen the shell
 # stolen from https://stackoverflow.com/a/71415530/7606121
 $env:PATH = [Environment]::GetEnvironmentVariable('Path', 'Machine'),
             [Environment]::GetEnvironmentVariable('Path', 'User') -join ';'
+winget install --silent --wait -e --id Git.Git
 $git_version = git --version
 if ($git_version -like "git version 2.*.")
 {
@@ -41,13 +41,13 @@ if ($git_version -like "git version 2.*.")
 
 # install Git
 Write-Host "Install FFmpeg..."
-winget install --wait -e --id Gyan.FFmpeg
 # refresh Path so no need to close and reopen the shell
 # stolen from https://stackoverflow.com/a/71415530/7606121
 $env:PATH = [Environment]::GetEnvironmentVariable('Path', 'Machine'),
             [Environment]::GetEnvironmentVariable('Path', 'User') -join ';'
 $ffmpeg_version = ffmpeg --version
 $ffmpeg_version = $ffmpeg_version.Substring(0, 18)
+winget install --silent --wait -e --id Gyan.FFmpeg
 if ($ffmpeg_version -like "ffmpeg version 6.*.")
 {
     Write-Host "FFmpeg version {0} installation succeeded!" -f $ffmpeg_version
@@ -56,12 +56,12 @@ if ($ffmpeg_version -like "ffmpeg version 6.*.")
 
 # install Visual C++ 2015 Redistributable
 Write-Host "Install Visual C++ 2015 Redistributable..."
-winget install --wait -e --id Microsoft.VCRedist.2015+.x64
 # refresh Path so no need to close and reopen the shell
 # stolen from https://stackoverflow.com/a/71415530/7606121
 $env:PATH = [Environment]::GetEnvironmentVariable('Path', 'Machine'),
             [Environment]::GetEnvironmentVariable('Path', 'User') -join ';'
 
+winget install --silent --wait -e --id Microsoft.VCRedist.2015+.x64
 Write-Host "Visual C++ 2015 Redistributable installation succeeded!"
 # ---
 
@@ -70,12 +70,12 @@ Write-Host "Install Visual Studio 2022 build tools..."
 # we install these workloads silently by overriding VS command line interface
 # https://learn.microsoft.com/en-us/visualstudio/install/use-command-line-parameters-to-install-visual-studio?view=vs-2022#use-winget-to-install-or-modify-visual-studio
 # for the BuildTools, we use components from here https://learn.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-build-tools?view=vs-2022&preserve-view=true
-winget install --wait -e --id Microsoft.VisualStudio.2022.BuildTools --override "--wait --add Microsoft.VisualStudio.Component.VC.CoreBuildTools --add Microsoft.VisualStudio.Component.VC.Redist.14.Latest --add Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Core"
 # refresh Path so no need to close and reopen the shell
 # stolen from https://stackoverflow.com/a/71415530/7606121
 $env:PATH = [Environment]::GetEnvironmentVariable('Path', 'Machine'),
             [Environment]::GetEnvironmentVariable('Path', 'User') -join ';'
 
+winget install --silent --wait -e --id Microsoft.VisualStudio.2022.BuildTools --override "--wait --quiet --installWhileDownloading --add Microsoft.VisualStudio.Component.VC.CoreBuildTools --add Microsoft.VisualStudio.Component.VC.Redist.14.Latest --add Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Core"
 Write-Host "Visual Studio 2022 build tools installation succeeded!"
 # ---
 
