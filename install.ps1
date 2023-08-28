@@ -33,7 +33,7 @@ Write-Host "Install Visual Studio 2022 build tools..."
 # we install these workloads silently by overriding VS command line interface
 # https://learn.microsoft.com/en-us/visualstudio/install/use-command-line-parameters-to-install-visual-studio?view=vs-2022#use-winget-to-install-or-modify-visual-studio
 # for the BuildTools, we use components from here https://learn.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-build-tools?view=vs-2022&preserve-view=true
-winget install --silent --wait -e --id Microsoft.VisualStudio.2022.BuildTools --override "--wait --quiet --installWhileDownloading --add Microsoft.VisualStudio.Component.VC.CoreBuildTools --add Microsoft.VisualStudio.Component.VC.Redist.14.Latest --add Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Core --add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 --add Microsoft.VisualStudio.Component.VC.CMake.Project --add Microsoft.VisualStudio.Component.VC.ASAN --add Microsoft.VisualStudio.Component.VC.CoreIde --add Microsoft.VisualStudio.Component.TextTemplating --add Microsoft.VisualStudio.Workload.MSBuildTools --add Microsoft.Component.MSBuild --add Microsoft.VisualStudio.Component.CoreBuildTools --add Microsoft.VisualStudio.Workload.VCTools --add Microsoft.VisualStudio.Component.Roslyn.Compiler --add Microsoft.VisualStudio.Component.Windows10SDK"
+winget install --silent --wait -e --id Microsoft.VisualStudio.2022.BuildTools --override "--wait --quiet --installWhileDownloading --config .vsconfig"
 # refresh Path
 RefreshShell
 Write-Host "Visual Studio 2022 build tools installation succeeded!"
