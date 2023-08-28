@@ -45,9 +45,8 @@ Write-Host "Install FFmpeg..."
 # stolen from https://stackoverflow.com/a/71415530/7606121
 $env:PATH = [Environment]::GetEnvironmentVariable('Path', 'Machine'),
             [Environment]::GetEnvironmentVariable('Path', 'User') -join ';'
-$ffmpeg_version = ffmpeg --version
-$ffmpeg_version = $ffmpeg_version.Substring(0, 18)
 winget install --silent --wait -e --id Gyan.FFmpeg
+$ffmpeg_version = (ffmpeg -version)[0].Substring(0, 18)
 if ($ffmpeg_version -like "ffmpeg version 6.*.")
 {
     Write-Host "FFmpeg version {0} installation succeeded!" -f $ffmpeg_version
