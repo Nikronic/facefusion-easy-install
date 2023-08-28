@@ -39,7 +39,7 @@ if ($git_version -like "git version 2.*.")
 }
 # ---
 
-# install Git
+# install FFmpeg
 Write-Host "Install FFmpeg..."
 # refresh Path so no need to close and reopen the shell
 # stolen from https://stackoverflow.com/a/71415530/7606121
