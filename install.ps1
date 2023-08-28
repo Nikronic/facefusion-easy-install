@@ -1,3 +1,12 @@
+# functions used thoroughout the script
+
+# refresh Path so no need to close and reopen the shell
+# stolen from https://stackoverflow.com/a/71415530/7606121
+function RefreshShell {
+    $env:PATH = [Environment]::GetEnvironmentVariable('Path', 'Machine'),
+                [Environment]::GetEnvironmentVariable('Path', 'User') -join ';'  
+}
+
 # install WinGet
 # code is stolen from https://learn.microsoft.com/en-us/windows/package-manager/winget/#install-winget-on-windows-sandbox
 $progressPreference = 'silentlyContinue'
@@ -13,11 +22,9 @@ Write-Host "WinGet installation succeeded!"
 
 # install Python 3.10
 Write-Host "Installing Python 3.10..."
-# refresh Path so no need to close and reopen the shell
-# stolen from https://stackoverflow.com/a/71415530/7606121
-$env:PATH = [Environment]::GetEnvironmentVariable('Path', 'Machine'),
-            [Environment]::GetEnvironmentVariable('Path', 'User') -join ';'
 winget install --silent --wait -e --id Python.Python.3.10
+# refresh Path
+RefreshShell
 $python_version = python --version
 if ($python_version -like "Python 3.10.*.")
 {
@@ -27,11 +34,9 @@ if ($python_version -like "Python 3.10.*.")
 
 # install Git
 Write-Host "Install Git to access source codes..."
-# refresh Path so no need to close and reopen the shell
-# stolen from https://stackoverflow.com/a/71415530/7606121
-$env:PATH = [Environment]::GetEnvironmentVariable('Path', 'Machine'),
-            [Environment]::GetEnvironmentVariable('Path', 'User') -join ';'
 winget install --silent --wait -e --id Git.Git
+# refresh Path
+RefreshShell
 $git_version = git --version
 if ($git_version -like "git version 2.*.")
 {
@@ -41,11 +46,9 @@ if ($git_version -like "git version 2.*.")
 
 # install FFmpeg
 Write-Host "Install FFmpeg..."
-# refresh Path so no need to close and reopen the shell
-# stolen from https://stackoverflow.com/a/71415530/7606121
-$env:PATH = [Environment]::GetEnvironmentVariable('Path', 'Machine'),
-            [Environment]::GetEnvironmentVariable('Path', 'User') -join ';'
 winget install --silent --wait -e --id Gyan.FFmpeg
+# refresh Path
+RefreshShell
 $ffmpeg_version = (ffmpeg -version)[0].Substring(0, 18)
 if ($ffmpeg_version -like "ffmpeg version 6.*.")
 {
@@ -55,12 +58,9 @@ if ($ffmpeg_version -like "ffmpeg version 6.*.")
 
 # install Visual C++ 2015 Redistributable
 Write-Host "Install Visual C++ 2015 Redistributable..."
-# refresh Path so no need to close and reopen the shell
-# stolen from https://stackoverflow.com/a/71415530/7606121
-$env:PATH = [Environment]::GetEnvironmentVariable('Path', 'Machine'),
-            [Environment]::GetEnvironmentVariable('Path', 'User') -join ';'
-
 winget install --silent --wait -e --id Microsoft.VCRedist.2015+.x64
+# refresh Path
+RefreshShell
 Write-Host "Visual C++ 2015 Redistributable installation succeeded!"
 # ---
 
@@ -69,12 +69,8 @@ Write-Host "Install Visual Studio 2022 build tools..."
 # we install these workloads silently by overriding VS command line interface
 # https://learn.microsoft.com/en-us/visualstudio/install/use-command-line-parameters-to-install-visual-studio?view=vs-2022#use-winget-to-install-or-modify-visual-studio
 # for the BuildTools, we use components from here https://learn.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-build-tools?view=vs-2022&preserve-view=true
-# refresh Path so no need to close and reopen the shell
-# stolen from https://stackoverflow.com/a/71415530/7606121
-$env:PATH = [Environment]::GetEnvironmentVariable('Path', 'Machine'),
-            [Environment]::GetEnvironmentVariable('Path', 'User') -join ';'
-
-winget install --silent --wait -e --id Microsoft.VisualStudio.2022.BuildTools --override "--wait --quiet --installWhileDownloading --add Microsoft.VisualStudio.Component.VC.CoreBuildTools --add Microsoft.VisualStudio.Component.VC.Redist.14.Latest --add Microsoft.VisualStudio.ComponentGroup.NativeDesktop.Core"
+# refresh Path
+RefreshShell
 Write-Host "Visual Studio 2022 build tools installation succeeded!"
 # ---
 
