@@ -77,13 +77,13 @@ if ($ffmpeg_version -like "ffmpeg version 6.*.")
 
 # clone the source code of facefusion
 Write-Host "Clone the source code of facefusion..."
-git clone https://github.com/facefusion/facefusion
+git clone https://github.com/Nikronic/facefusion-easy-install.git
 Write-Host "Code clone succeeded!"
 # --
 
 # create a virtual environment
 Write-Host "Create a Python virtual environment..."
-cd facefusion
+cd facefusion-easy-install
 python -m venv venv
 Set-ExecutionPolicy RemoteSigned -Force  # allow running scripts
 .\venv\Scripts\activate  # activate virtual env
