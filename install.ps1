@@ -33,7 +33,9 @@ Write-Host "Install Visual Studio 2022 build tools..."
 # we install these workloads silently by overriding VS command line interface
 # https://learn.microsoft.com/en-us/visualstudio/install/use-command-line-parameters-to-install-visual-studio?view=vs-2022#use-winget-to-install-or-modify-visual-studio
 # for the BuildTools, we use components from here https://learn.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-build-tools?view=vs-2022&preserve-view=true
-winget install --silent --wait -e --id Microsoft.VisualStudio.2022.BuildTools --override "--wait --quiet --installWhileDownloading --config .vsconfig"
+$vsconfig_path = Get-ChildItem .\.vsconfig | Select-Object -ExpandProperty FullName
+$vsconfig = "--wait --quiet --installWhileDownloading --config {0}" -f $vsconfig_path
+winget install --silent --wait -e --id Microsoft.VisualStudio.2022.BuildTools --override $vsconfig.ToString()
 # refresh Path
 RefreshShell
 Write-Host "Visual Studio 2022 build tools installation succeeded!"
