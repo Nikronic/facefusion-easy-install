@@ -92,6 +92,11 @@ Write-Host "Code clone succeeded!"
 # create a virtual environment
 Write-Host "Create a Python virtual environment..."
 cd facefusion-easy-install
+if (Test-Path venv)
+{
+    Write-Host "It appears the virtual environment 'venv' already exists. Please delete it first."
+    exit
+}
 python -m venv venv
 Set-ExecutionPolicy RemoteSigned -Force  # allow running scripts
 .\venv\Scripts\activate  # activate virtual env
