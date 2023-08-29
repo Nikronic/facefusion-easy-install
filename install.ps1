@@ -102,9 +102,9 @@ Set-ExecutionPolicy RemoteSigned -Force  # allow running scripts
 .\venv\Scripts\activate  # activate virtual env
 # check if the environment is activated
 $is_venv_activated = (Get-Command python).Source -like "*facefusion*"
-if ($is_venv_activated)
+if ($true -ne $is_venv_activated)
 {
-    Write-Host "Python virtual environment activation succeeded!"
+    Write-Host "Python virtual environment activation failed, please try again!"
 }
 # ---
 
