@@ -79,6 +79,12 @@ if ($ffmpeg_version -like "ffmpeg version 6.*.")
 
 # clone the source code of facefusion
 Write-Host "Clone the source code of facefusion..."
+if (Test-Path facefusion-easy-install)
+{
+    Write-Host "The directory facefusion-easy-install already exists. Please delete it first."
+    exit
+}
+# git clone (this might take a while)
 git clone https://github.com/Nikronic/facefusion-easy-install.git
 Write-Host "Code clone succeeded!"
 # --
