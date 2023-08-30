@@ -125,4 +125,12 @@ pip uninstall onnxruntime onnxruntime-gpu
 pip install onnxruntime
 Write-Host "Python dependency installation succeeded!"
 
-[Console]::ReadKey()
+# run the app
+Write-Host
+Write-Host "Installation succeeded!"
+Write-Host "You can now run the app *manually* by executing the following command:"
+Write-Host "python 'python .\run.py'"
+# open browser at the app
+Start-Process "http://localhost:7860"
+# run the app
+python .\run.py
