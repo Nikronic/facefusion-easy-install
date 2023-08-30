@@ -113,12 +113,16 @@ if ($true -ne $is_venv_activated)
 }
 # ---
 
+RefreshShell
 # install python packages and dependencies
 Write-Host "Install pyton packages and dependencies. This might take few mins given your connection speed..."
 # update pip
 python.exe -m pip install --upgrade pip
 # install dependencies
 pip install -r requirements.txt
+# install onnxruntime for CPU if not done already
+pip uninstall onnxruntime onnxruntime-gpu
+pip install onnxruntime
 Write-Host "Python dependency installation succeeded!"
 
 [Console]::ReadKey()
