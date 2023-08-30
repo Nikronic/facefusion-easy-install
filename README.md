@@ -6,29 +6,42 @@ FaceFusion
 [![Build Status](https://img.shields.io/github/actions/workflow/status/facefusion/facefusion/ci.yml.svg?branch=master)](https://github.com/facefusion/facefusion/actions?query=workflow:ci)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-
 Preview
 -------
 
 ![Preview](https://raw.githubusercontent.com/facefusion/facefusion/master/.github/preview.png?sanitize=true)
 
-
 Installation
 ------------
 
+**Easy Install**:
+
+For easy installation, do the following:
+
+1. Put the `.vsconfig` and `install.ps1` in the same directory. All other dependencies will be installed in this directory.
+2. Run `install.ps1` which will install all dependencies and start the app.
+
+*Notes:*
+
+1. Since some of these dependencies are huge, it will take a while to install.
+2. Check your data plan as the dependencies are a few GBs.
+3. (Optional) Since there are many steps in the installation process, if any step failed, simply re-run the script as it will check for missing packages and fix the installation.
+
+---
+
+**Manual Installation**:
+
 Be aware, the installation needs technical skills and is not for beginners. Please do not open platform and installation related issues on GitHub. We have a very helpful [Discord](https://join.facefusion.io) community that will guide you to install FaceFusion.
 
-[Basic](https://docs.facefusion.io/installation/basic) - It is more likely to work on your computer, but will be quite slow
-
-[Acceleration](https://docs.facefusion.io/installation/acceleration) - Unleash the full potential of your CPU and GPU
-
+1. [Basic](https://docs.facefusion.io/installation/basic) - It is more likely to work on your computer, but will be quite slow
+2. [Acceleration](https://docs.facefusion.io/installation/acceleration) - Unleash the full potential of your CPU and GPU
 
 Usage
 -----
 
 Start the program with arguments:
 
-```
+```shell
 python run.py [options]
 
 -h, --help                                                                                       show this help message and exit
@@ -62,7 +75,6 @@ python run.py [options]
 
 Using the `-s/--source`, `-t/--target` and `-o/--output` arguments will run the program in headless mode.
 
-
 Disclaimer
 ----------
 
@@ -71,7 +83,6 @@ This software is meant to be a productive contribution to the rapidly growing AI
 The developers of this software are aware of its possible unethical applications and are committed to take preventative measures against them. It has a built-in check which prevents the program from working on inappropriate media including but not limited to nudity, graphic content, sensitive material such as war footage etc. We will continue to develop this project in the positive direction while adhering to law and ethics. This project may be shut down or include watermarks on the output if requested by law.
 
 Users of this software are expected to use this software responsibly while abiding the local law. If face of a real person is being used, users are suggested to get consent from the concerned person and clearly mention that it is a deepfake when posting content online. Developers of this software will not be responsible for actions of end-users.
-
 
 Documentation
 -------------
