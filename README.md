@@ -16,6 +16,23 @@ Preview
 Installation
 ------------
 
+**Easy Install**:
+
+For easy installation, do the following:
+
+1. Put the `.vsconfig` and `install.ps1` in the same directory. All other dependencies will be installed in this directory.
+2. Run `install.ps1` which will install all dependencies and start the app.
+
+*Notes:*
+
+1. Since some of these dependencies are huge, it will take a while to install.
+2. Check your data plan as the dependencies are a few GBs.
+3. (Optional) Since there are many steps in the installation process, if any step failed, simply re-run the script as it will check for missing packages and fix the installation.
+
+---
+
+**Manual Installation**:
+
 Be aware, the installation needs technical skills and is not for beginners. Please do not open platform and installation related issues on GitHub. We have a very helpful [Discord](https://join.facefusion.io) community that will guide you to install FaceFusion.
 
 [Basic](https://docs.facefusion.io/installation/basic) - It is more likely to work on your computer, but will be quite slow
