@@ -33,8 +33,8 @@ For easy installation, do the following:
 
 Be aware, the installation needs technical skills and is not for beginners. Please do not open platform and installation related issues on GitHub. We have a very helpful [Discord](https://join.facefusion.io) community that will guide you to complete the installation.
 
-Get started with the [installation](https://docs.facefusion.io/installation) guide.
-
+1. [Basic](https://docs.facefusion.io/installation/basic) - It is more likely to work on your computer, but will be quite slow
+2. [Acceleration](https://docs.facefusion.io/installation/acceleration) - Unleash the full potential of your CPU and GPU
 
 Usage
 -----
